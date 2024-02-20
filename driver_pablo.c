@@ -4,8 +4,8 @@
 #include <linux/fs.h>
 #include <linux/random.h>
 #include <linux/notifier.h>
-#include <linux/keyboard.h>
-#include <linux/input.h>
+
+#include "char_mapping.h"
 
 #define DRIVER_NAME "DriverDePablo"
 #define DRIVER_CLASS "DriverDePabloClass"
@@ -74,19 +74,11 @@ static int keyboard_notifier_fn(struct notifier_block *nb, unsigned long action,
     struct keyboard_notifier_param *param = data;
     unsigned int keycode = param->value;
 
-    if (action == KBD_KEYCODE && param->down) {
-        if (keycode >= KEY_Q && keycode <= KEY_P) {
-            char key = keycode - KEY_Q + 'a';
-            add_to_buffer(key);            
-        }
-        if (keycode >= KEY_A && keycode <= KEY_L) {
-            char key = keycode - KEY_A + 'a';
+    if (action == KBD_KEYCODE && param->down)
+    {
+        char key = keycode_to_char(keycode);
+        if (key != ' ')
             add_to_buffer(key);
-        }
-        if (keycode >= KEY_Z && keycode <= KEY_M) {
-            char key = keycode - KEY_Z + 'a';
-            add_to_buffer(key);
-        }
     }
 
     return NOTIFY_OK;

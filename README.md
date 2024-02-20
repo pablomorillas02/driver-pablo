@@ -51,7 +51,7 @@ Luego ejecutamos el programa compilado:
 ./read_test
 ```
 
-Obtendremos por la consola las últimas letras presionadas.
+Obtendremos por la consola las últimas letras presionadas además de un número aleatorio generado con dichas letras.
 
 ### Escritura
 
