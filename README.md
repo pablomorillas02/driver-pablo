@@ -63,9 +63,11 @@ Dado un número _n_ las sucesiones que se calculan son:
 > 1 - 2 + 3 - 4 + ... + n si n es par
 > 1 - 2 + 3 - 4 + ... - n si n es impar 
 
-- Para el segundo dispositivo: 1 + 2 + 3 + 4 + ... + n
+- Para el segundo dispositivo:
+> 1 + 2 + 3 + 4 + ... + n
 
-- Para el tercer dispositivo: 1^2  + 2^2 + 3^2 + ... + n^2 
+- Para el tercer dispositivo:
+> 1^2  + 2^2 + 3^2 + ... + n^2 
 
 Para poder comprobar el funcionamiento podemos realizar una operación de escritura arbitraria usado la orden _echo_:
 
